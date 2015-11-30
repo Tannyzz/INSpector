@@ -1,0 +1,358 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta charset="utf-8" />
+</head>
+
+<body style="margin: 0;">
+
+<div id="jpedal" style="overflow: hidden; position:relative; width: 935px; height: 1210px;">
+
+<!-- Begin shared CSS values -->
+<style type="text/css" >
+.t {
+	position: absolute;
+	-webkit-transform-origin: top left;
+	-moz-transform-origin: top left;
+	-o-transform-origin: top left;
+	-ms-transform-origin: top left;
+	-webkit-transform: scale(0.25);
+	-moz-transform: scale(0.25);
+	-o-transform: scale(0.25);
+	-ms-transform: scale(0.25);
+	z-index: 2;
+	position:absolute;
+	white-space:nowrap;
+	overflow:visible;
+}
+</style>
+<!-- End shared CSS values -->
+
+<!-- Begin shared JS -->
+<script type="text/javascript">
+
+// Ensure that we're not replacing any onload events
+function addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			if (oldonload) {
+				oldonload();
+			}
+			func();
+		}
+	}
+}
+addLoadEvent(function(){load1();});
+
+function adjustWordSpacing(widths) {
+    var i, allLinesDone = false;
+    var isDone = [];
+    var currentSpacing = [];
+    var elements = [];
+    
+    // Initialise arrays
+    for (i = 0; i < widths.length; i++) {
+        elements[i] = document.getElementById(widths[i][0]);
+        elements[i].style.wordSpacing = '0px';//Required if rerunning
+    }
+    for (i = 0; i < widths.length; i++) {
+        if (isIE) widths[i][1] = widths[i][1] * 4;
+        currentSpacing[i] = Math.floor((widths[i][1] - elements[i].offsetWidth) / elements[i].innerHTML.match(/\s.|&nbsp;./g).length);//min
+        if (isIE) currentSpacing[i] = Math.floor(currentSpacing[i] / 4);
+        isDone[i] = false;
+    }
+    
+    while (!allLinesDone) {
+        // Add each adjustment to the render queue without forcing a render
+        for (i = 0; i < widths.length; i++) {
+            if (!isDone[i]) {
+                elements[i].style.wordSpacing = currentSpacing[i] + 'px';
+            }            
+        }
+        
+        allLinesDone = true;
+        // If elements still need to be wider, add 1 to the word spacing
+        for (i = 0; i < widths.length; i++) {
+            if (!isDone[i] && currentSpacing[i] < 160) {
+                if (elements[i].offsetWidth >= widths[i][1]) {
+                    isDone[i] = true;
+                } else {
+                    currentSpacing[i]++;
+                    allLinesDone = false;
+                }
+            }
+        }
+    }
+    
+    for (i = 0; i < widths.length; i++) {
+        elements[i].style.wordSpacing = (currentSpacing[i] - 1) + 'px';
+    }
+}
+
+</script>
+<!-- End shared JS -->
+
+
+<!-- Begin inline CSS -->
+<style type="text/css" >
+
+#t1_1{left:672px;top:41px;letter-spacing:-2px;}
+#t2_1{left:567px;top:57px;}
+#t3_1{left:404px;top:239px;letter-spacing:-1px;}
+#t4_1{left:65px;top:255px;}
+#t5_1{left:64px;top:293px;}
+#t6_1{left:318px;top:293px;}
+#t7_1{left:36px;top:1156px;}
+#t8_1{left:36px;top:1118px;}
+#t9_1{left:433px;top:622px;}
+#ta_1{left:55px;top:637px;}
+#tb_1{left:123px;top:637px;}
+#tc_1{left:179px;top:637px;}
+#td_1{left:621px;top:637px;}
+#te_1{left:55px;top:651px;}
+#tf_1{left:55px;top:666px;}
+#tg_1{left:147px;top:1165px;}
+#th_1{left:55px;top:150px;}
+#ti_1{left:55px;top:165px;}
+#tj_1{left:55px;top:179px;}
+#tk_1{left:407px;top:179px;}
+#tl_1{left:55px;top:194px;}
+#tm_1{left:55px;top:209px;}
+#tn_1{left:330px;top:327px;}
+#to_1{left:539px;top:384px;}
+#tp_1{left:540px;top:255px;}
+#tq_1{left:406px;top:413px;letter-spacing:-1px;}
+#tr_1{left:250px;top:366px;}
+#ts_1{left:279px;top:381px;letter-spacing:-1px;}
+#tt_1{left:362px;top:382px;letter-spacing:-1px;}
+#tu_1{left:456px;top:382px;}
+#tv_1{left:739px;top:92px;}
+#tw_1{left:743px;top:103px;letter-spacing:1px;}
+#tx_1{left:785px;top:102px;letter-spacing:1px;}
+#ty_1{left:840px;top:102px;letter-spacing:1px;}
+#tz_1{left:705px;top:256px;}
+#t10_1{left:502px;top:327px;}
+#t11_1{left:701px;top:329px;}
+#t12_1{left:66px;top:367px;}
+#t13_1{left:66px;top:430px;}
+#t14_1{left:56px;top:752px;}
+#t15_1{left:56px;top:767px;}
+#t16_1{left:89px;top:813px;}
+#t17_1{left:408px;top:814px;}
+#t18_1{left:695px;top:814px;}
+#t19_1{left:61px;top:848px;}
+#t1a_1{left:59px;top:875px;}
+#t1b_1{left:270px;top:826px;}
+#t1c_1{left:67px;top:465px;}
+#t1d_1{left:321px;top:465px;}
+#t1e_1{left:583px;top:502px;}
+#t1f_1{left:67px;top:501px;}
+#t1g_1{left:289px;top:501px;}
+#t1h_1{left:66px;top:539px;}
+#t1i_1{left:287px;top:539px;}
+#t1j_1{left:727px;top:539px;}
+#t1k_1{left:34px;top:917px;letter-spacing:1px;}
+#t1l_1{left:424px;top:136px;}
+#t1m_1{left:66px;top:576px;}
+#t1n_1{left:283px;top:574px;}
+#t1o_1{left:503px;top:575px;}
+#t1p_1{left:67px;top:327px;}
+#t1q_1{left:198px;top:327px;}
+#t1r_1{left:54px;top:918px;}
+#t1s_1{left:54px;top:933px;}
+#t1t_1{left:54px;top:948px;}
+#t1u_1{left:54px;top:962px;}
+#t1v_1{left:59px;top:688px;}
+#t1w_1{left:54px;top:662px;}
+#t1x_1{left:54px;top:676px;}
+#t1y_1{left:288px;top:705px;}
+#t1z_1{left:295px;top:676px;}
+#t20_1{left:671px;top:676px;}
+#t21_1{left:54px;top:691px;}
+#t22_1{left:54px;top:706px;}
+#t23_1{left:210px;top:1077px;}
+#t24_1{left:253px;top:1092px;}
+
+.s7_1{
+	FONT-SIZE: 42px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+}
+
+.s6_1{
+	FONT-SIZE: 48px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(0,0,0);
+}
+
+.s5_1{
+	FONT-SIZE: 36px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+	FONT-WEIGHT: bold;
+}
+
+.s9_1{
+	FONT-SIZE: 48px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+}
+
+.s3_1{
+	FONT-SIZE: 42px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+	FONT-WEIGHT: bold;
+}
+
+.s4_1{
+	FONT-SIZE: 36px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+}
+
+.s10_1{
+	FONT-SIZE: 54px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(0,0,0);
+	FONT-WEIGHT: bold;
+}
+
+.s1_1{
+	FONT-SIZE: 55px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+	FONT-WEIGHT: bold;
+}
+
+.s8_1{
+	FONT-SIZE: 30px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+}
+
+.s2_1{
+	FONT-SIZE: 73px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+	FONT-WEIGHT: bold;
+}
+
+.t.m1_1{
+-webkit-transform:matrix(0,-1,1,0,0, 0) scale(0.25);
+-ms-transform:matrix(0,-1,1,0,0, 0) scale(0.25);
+-moz-transform:matrix(0,-1,1,0,0, 0) scale(0.25);
+-o-transform:matrix(0,-1,1,0,0, 0) scale(0.25);
+}
+
+</style>
+<!-- End inline CSS -->
+
+<!-- Begin text definitions (Positioned/styled in CSS) -->
+<div id="t1_1" class="t s1_1">DECLARACIÓN DE BENEFICIARIO</div>
+<div id="t2_1" class="t s2_1">ALBACEA DE LA SUCESIÓN LEGAL</div>
+<div id="t3_1" class="t s3_1">DATOS DEL ASEGURADO</div>
+<div id="t4_1" class="t s4_1">NOMBRE</div>
+<div id="t5_1" class="t s4_1">DOMICILIO (CALLE, NÚMERO, COLONIA, CÓDIGO POSTAL, </div>
+<div id="t6_1" class="t s4_1">POBLACIÓN Y ESTADO)</div>
+<div id="t7_1" class="t m1_1 s5_1">SV-022 </div>
+<div id="t8_1" class="t m1_1 s5_1">02-2009</div>
+<div id="tg_1" class="t s7_1">Seguros Banamex, S.A. de C.V. Venustiano Carranza No. 63 Col. Centro C.P. 06000 México, D.F. Tels. 1226 8100 y 01 800 888 3676</div>
+<div id="th_1" class="t s6_1">Favor de leer antes de firmar y llenar todos los campos. En caso de existir varios albaceas, deberán llenar una declaración por separado.</div>
+<div id="ti_1" class="t s6_1">Esta declaración deberá ser contestada y firmada por el Albacea de la Sucesión Legal del Asegurado, quien deberá entregar con la presente</div>
+<div id="tj_1" class="t s6_1">declaración, copia certificada de su nombramiento de Albacea, </div>
+<div id="tk_1" class="t s6_1">así como de la aceptación y protesta de su cargo en el juicio sucesorio del Asegurado.</div>
+<div id="tl_1" class="t s6_1">El Albacea será el responsable de los datos asentados en este documento, así como de la correcta administración, en términos de ley, del pago de</div>
+<div id="tm_1" class="t s6_1">la suma asegurada, que en su caso proceda. La Aseguradora se reserva el derecho de exigir información adicional.</div>
+<div id="tn_1" class="t s4_1">SUMA ASEGURADA</div>
+<div id="to_1" class="t s4_1">No. DE AFILIACIÓN</div>
+<div id="tp_1" class="t s4_1">R.F.C. DEL ASEGURADO</div>
+<div id="tq_1" class="t s3_1">DATOS DEL  ALBACEA </div>
+<div id="tr_1" class="t s4_1">AFILIACIÓN DEL SERVICIO MÉDICO</div>
+<div id="ts_1" class="t s7_1">IMSS</div>
+<div id="tt_1" class="t s7_1">ISSSTE</div>
+<div id="tu_1" class="t s7_1">PARTICULAR</div>
+<div id="tv_1" class="t s4_1">FECHA</div>
+<div id="tw_1" class="t s8_1">DIA</div>
+<div id="tx_1" class="t s8_1">MES</div>
+<div id="ty_1" class="t s8_1">AÑO</div>
+<div id="tz_1" class="t s4_1">CURP DEL ASEGURADO</div>
+<div id="t10_1" class="t s4_1">OCUPACIÓN</div>
+<div id="t11_1" class="t s4_1">ACTIVIDAD</div>
+<div id="t12_1" class="t s4_1">NACIONALIDAD</div>
+<div id="t13_1" class="t s4_1">NOMBRE</div>
+<div id="t14_1" class="t s9_1">Asimismo y en mi carácter de Albacea de la Sucesión Legal del (a) Asegurado (a), en caso de procedencia del siniestro reclamado, otorgo </div>
+<div id="t15_1" class="t s9_1">mi consentimiento, para que se pague el importe mediante:</div>
+<div id="t16_1" class="t s7_1">ABONO EN LA CUENTA ______________________________</div>
+<div id="t17_1" class="t s7_1">No. DE CUENTA ______________________________</div>
+<div id="t18_1" class="t s7_1">No. DE SUCURSAL ___________</div>
+<div id="t19_1" class="t s9_1">de Banco Nacional de México, S.A. a nombre del (a) suscrito (a).</div>
+<div id="t1a_1" class="t s7_1">Hago del conocimiento de la Aseguradora, que el domicilio señalado lo designo para efecto de recibir todo tipo de notificaciones en relación a la presente póliza.</div>
+<div id="t1b_1" class="t s4_1">(tipo de cuenta)</div>
+<div id="t1c_1" class="t s4_1">DOMICILIO (CALLE, NÚMERO, COLONIA, CÓDIGO POSTAL, </div>
+<div id="t1d_1" class="t s4_1">POBLACIÓN Y ESTADO)</div>
+<div id="t1e_1" class="t s4_1">TELÉFONO</div>
+<div id="t1f_1" class="t s4_1">R.F.C. DEL  ALBACEA</div>
+<div id="t1g_1" class="t s4_1">CURP DEL  ALBACEA</div>
+<div id="t1h_1" class="t s4_1">OCUPACIÓN</div>
+<div id="t1i_1" class="t s4_1">ACTIVIDAD</div>
+<div id="t1j_1" class="t s4_1">NACIONALIDAD</div>
+<div id="t1k_1" class="t m1_1 s10_1">“En caso de no llenar debidamente todos los campos requisitados la solicitud no será válida"</div>
+<div id="t1l_1" class="t s3_1">INSTRUCCIONES</div>
+<div id="t1m_1" class="t s4_1">JUICIO SUCESORIO NO.</div>
+<div id="t1n_1" class="t s4_1">JUZGADO</div>
+<div id="t1o_1" class="t s4_1">UBICADO EN</div>
+<div id="t1p_1" class="t s4_1">No. DE PÓLIZA</div>
+<div id="t1q_1" class="t s4_1">No. DE CERTIFICADO</div>
+<div id="t1r_1" class="t s6_1">Por lo anterior, mediante el (los) depósito(s) que se haga (n) en la cuenta señalada, en mi carácter de Albacea de la Sucesión Legal del (la) </div>
+<div id="t1s_1" class="t s6_1">Asegurado(a), me doy por pagado de todas y cada una de las prestaciones originadas en el contrato de seguro señalado, y otorgo el mas </div>
+<div id="t1t_1" class="t s6_1">amplio finiquito que en derecho proceda no reservandome acción, ni derecho alguno que ejercitar en contra de Seguros Banamex, S.A. de C.V. y/o </div>
+<div id="t1u_1" class="t s6_1">de las personas físicas y morales relacionadas con la misma.</div>
+<div id="t1v_1" class="t s6_1">.</div>
+<div id="t1w_1" class="t s6_1">En mi carácter de Albacea de la Sucesión Legal del (a) Asegurado (a), autorizo al (los) médico (s) que ha (n) atendido al (la) Asegurado(a), así </div>
+<div id="t1x_1" class="t s6_1">como las Aseguradoras donde esté suscri </div>
+<div id="t1y_1" class="t s6_1">,</div>
+<div id="t1z_1" class="t s6_1">ito (a) y a los Hospitales, Clìnicas y Sanatorios donde fue atendido, </div>
+<div id="t20_1" class="t s6_1">a proporcionar al personal designado</div>
+<div id="t21_1" class="t s6_1">por Seguros Banamex, S.A. de C.V., todos los informes referentes a su salud y atención médica proporcionada, para lo cual relevo a dichos médicos</div>
+<div id="t22_1" class="t s6_1">y/o Instituciones en relación a su secreto profesional, de toda la resposabilidad por la información que se otorgue.</div>
+<div id="t23_1" class="t s6_1">_____________________________________________________________________________</div>
+<div id="t24_1" class="t s6_1">FIRMA DEL ALBACEA DE LA SUCESION LEGAL DEL(A) ASEGURADO(A)</div>
+
+<!-- End text definitions -->
+
+<!-- Begin page background -->
+<div id="pg1Overlay" style="width:100%; height:100%; position:absolute; z-index:1; background-color:rgba(0,0,0,0); -webkit-user-select: none;"></div>
+<div id="pg1"><object width="935" height="1210" data="1/1.svg" type="image/svg+xml" id="pdf1" style="width:935px; height:1210px; background-color:white; -moz-transform:scale(1); z-index: 0;"></object></div>
+<!-- End page background -->
+
+<!-- Begin page loading JS -->
+<script id="ld1" type="text/javascript">
+
+var isIE = false;
+var f1 = [['t1_1',838],['t2_1',1259],['t3_1',508],['t5_1',1002],['t6_1',404],['tg_1',2560],['th_1',3112],['ti_1',3305],['tj_1',1379],['tk_1',1899],['tl_1',3299],['tm_1',2626],['tn_1',338],['to_1',329],['tp_1',416],['tq_1',448],['tr_1',623],['tz_1',420],['t14_1',3159],['t15_1',1288],['t16_1',1195],['t17_1',1042],['t18_1',652],['t19_1',1434],['t1a_1',3144],['t1b_1',247],['t1c_1',1000],['t1d_1',406],['t1f_1',364],['t1g_1',370],['t1k_1',2553],['t1m_1',436],['t1o_1',233],['t1p_1',247],['t1q_1',363],['t1r_1',3175],['t1s_1',3251],['t1t_1',3237],['t1u_1',1374],['t1w_1',3253],['t1x_1',976],['t1z_1',1475],['t20_1',819],['t21_1',3283],['t22_1',2550],['t24_1',1761]];
+function load1(){
+	var timeout = 100;
+	if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)) timeout = 500;
+	setTimeout(function() {adjustWordSpacing(f1);},timeout);
+}
+</script>
+<!--[if lt IE 9]><script type="text/javascript">
+isIE = true;
+
+var divCount = 70;
+for (var i = 1; i < divCount; i++) {
+	var div = document.getElementById("t" + i.toString(36) + "_1");
+	div.style.top = (div.offsetTop * 4) + "px";
+	div.style.left = (div.offsetLeft * 4) + "px";
+	div.style.zoom = "25%";}
+</script><![endif]-->
+<!-- End page loading JS -->
+
+</div>
+</body>
+</html>

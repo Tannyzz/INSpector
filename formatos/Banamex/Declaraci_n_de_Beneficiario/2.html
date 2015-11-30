@@ -1,0 +1,310 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta charset="utf-8" />
+</head>
+
+<body style="margin: 0;">
+
+<div id="jpedal" style="overflow: hidden; position:relative; width: 935px; height: 1210px;">
+
+<!-- Begin shared CSS values -->
+<style type="text/css" >
+.t {
+	position: absolute;
+	-webkit-transform-origin: top left;
+	-moz-transform-origin: top left;
+	-o-transform-origin: top left;
+	-ms-transform-origin: top left;
+	-webkit-transform: scale(0.25);
+	-moz-transform: scale(0.25);
+	-o-transform: scale(0.25);
+	-ms-transform: scale(0.25);
+	z-index: 2;
+	position:absolute;
+	white-space:nowrap;
+	overflow:visible;
+}
+</style>
+<!-- End shared CSS values -->
+
+<!-- Begin shared JS -->
+<script type="text/javascript">
+
+// Ensure that we're not replacing any onload events
+function addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			if (oldonload) {
+				oldonload();
+			}
+			func();
+		}
+	}
+}
+addLoadEvent(function(){load2();});
+
+function adjustWordSpacing(widths) {
+    var i, allLinesDone = false;
+    var isDone = [];
+    var currentSpacing = [];
+    var elements = [];
+    
+    // Initialise arrays
+    for (i = 0; i < widths.length; i++) {
+        elements[i] = document.getElementById(widths[i][0]);
+        elements[i].style.wordSpacing = '0px';//Required if rerunning
+    }
+    for (i = 0; i < widths.length; i++) {
+        if (isIE) widths[i][1] = widths[i][1] * 4;
+        currentSpacing[i] = Math.floor((widths[i][1] - elements[i].offsetWidth) / elements[i].innerHTML.match(/\s.|&nbsp;./g).length);//min
+        if (isIE) currentSpacing[i] = Math.floor(currentSpacing[i] / 4);
+        isDone[i] = false;
+    }
+    
+    while (!allLinesDone) {
+        // Add each adjustment to the render queue without forcing a render
+        for (i = 0; i < widths.length; i++) {
+            if (!isDone[i]) {
+                elements[i].style.wordSpacing = currentSpacing[i] + 'px';
+            }            
+        }
+        
+        allLinesDone = true;
+        // If elements still need to be wider, add 1 to the word spacing
+        for (i = 0; i < widths.length; i++) {
+            if (!isDone[i] && currentSpacing[i] < 160) {
+                if (elements[i].offsetWidth >= widths[i][1]) {
+                    isDone[i] = true;
+                } else {
+                    currentSpacing[i]++;
+                    allLinesDone = false;
+                }
+            }
+        }
+    }
+    
+    for (i = 0; i < widths.length; i++) {
+        elements[i].style.wordSpacing = (currentSpacing[i] - 1) + 'px';
+    }
+}
+
+</script>
+<!-- End shared JS -->
+
+
+<!-- Begin inline CSS -->
+<style type="text/css" >
+
+#t1_2{left:45px;top:153px;}
+#t2_2{left:45px;top:167px;}
+#t3_2{left:447px;top:167px;}
+#t4_2{left:688px;top:166px;letter-spacing:-1px;}
+#t5_2{left:45px;top:189px;}
+#t6_2{left:45px;top:224px;}
+#t7_2{left:45px;top:261px;}
+#t8_2{left:50px;top:292px;}
+#t9_2{left:50px;top:310px;}
+#ta_2{left:279px;top:310px;}
+#tb_2{left:50px;top:329px;}
+#tc_2{left:50px;top:347px;}
+#td_2{left:50px;top:365px;}
+#te_2{left:50px;top:418px;}
+#tf_2{left:50px;top:437px;}
+#tg_2{left:50px;top:455px;}
+#th_2{left:50px;top:492px;}
+#ti_2{left:50px;top:510px;}
+#tj_2{left:50px;top:528px;}
+#tk_2{left:50px;top:547px;}
+#tl_2{left:50px;top:565px;}
+#tm_2{left:50px;top:602px;}
+#tn_2{left:50px;top:620px;}
+#to_2{left:50px;top:657px;}
+#tp_2{left:50px;top:675px;}
+#tq_2{left:50px;top:693px;}
+#tr_2{left:61px;top:736px;}
+#ts_2{left:756px;top:736px;}
+#tt_2{left:61px;top:764px;}
+#tu_2{left:61px;top:791px;}
+#tv_2{left:61px;top:819px;letter-spacing:-1px;}
+#tw_2{left:50px;top:1060px;}
+#tx_2{left:50px;top:1078px;}
+#ty_2{left:50px;top:1115px;}
+#tz_2{left:407px;top:397px;letter-spacing:-1px;}
+#t10_2{left:462px;top:754px;}
+#t11_2{left:336px;top:841px;}
+#t12_2{left:96px;top:967px;}
+#t13_2{left:188px;top:980px;}
+#t14_2{left:593px;top:967px;}
+#t15_2{left:202px;top:1040px;}
+#t16_2{left:641px;top:1040px;}
+#t17_2{left:33px;top:66px;}
+#t18_2{left:33px;top:81px;letter-spacing:1px;}
+#t19_2{left:33px;top:96px;}
+#t1a_2{left:33px;top:110px;}
+#t1b_2{left:91px;top:110px;}
+#t1c_2{left:285px;top:110px;}
+#t1d_2{left:55px;top:875px;letter-spacing:1px;}
+#t1e_2{left:55px;top:888px;}
+#t1f_2{left:529px;top:888px;}
+#t1g_2{left:553px;top:888px;}
+#t1h_2{left:246px;top:858px;letter-spacing:-1px;}
+
+.s4_2{
+	FONT-SIZE: 61px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+}
+
+.s1_2{
+	FONT-SIZE: 36px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+}
+
+.s8_2{
+	FONT-SIZE: 45px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(0,0,0);
+}
+
+.s10_2{
+	FONT-SIZE: 36px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(0,0,0);
+}
+
+.s5_2{
+	FONT-SIZE: 61px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+	FONT-WEIGHT: bold;
+}
+
+.s9_2{
+	FONT-SIZE: 45px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(46,48,146);
+}
+
+.s3_2{
+	FONT-SIZE: 42px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+}
+
+.s6_2{
+	FONT-SIZE: 48px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+}
+
+.s7_2{
+	FONT-SIZE: 48px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+	FONT-WEIGHT: bold;
+}
+
+.s2_2{
+	FONT-SIZE: 36px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+	FONT-WEIGHT: bold;
+}
+
+</style>
+<!-- End inline CSS -->
+
+<!-- Begin text definitions (Positioned/styled in CSS) -->
+<div id="t1_2" class="t s1_2">¿ EN QUÉ OTRAS COMPAÑÍAS Y POR QUÉ SUMAS ASEGURADAS ESTABA ASEGURADA LA VIDA DEL FINADO ?</div>
+<div id="t2_2" class="t s2_2">NOMBRE DE LA COMPAÑÍA</div>
+<div id="t3_2" class="t s2_2">NÚMERO DE PÓLIZA</div>
+<div id="t4_2" class="t s2_2">SUMA ASEGURADA</div>
+<div id="t5_2" class="t s3_2">1.-</div>
+<div id="t6_2" class="t s3_2">2.-</div>
+<div id="t7_2" class="t s3_2">3.-</div>
+<div id="t8_2" class="t s4_2">Autorizo a los médicos que me han atendido o que me atiendan en lo sucesivo, para que proporcionen al personal designado por</div>
+<div id="t9_2" class="t s5_2">Seguros Banamex, S.A. de C.V.,</div>
+<div id="ta_2" class="t s4_2">todos los informes referentes a mi salud, para lo cual relevo a dichos médicos en relación a</div>
+<div id="tb_2" class="t s4_2">su secreto profesional de toda responsabilidad derivada de la información otorgada. Asimismo autorizo a las Aseguradoras</div>
+<div id="tc_2" class="t s4_2">donde estoy suscrito y a los Hospitales, Clínicas y Sanatorios donde fuí atendido a proporcionar todos los informes relativos a</div>
+<div id="td_2" class="t s4_2">mi salud.</div>
+<div id="te_2" class="t s4_2">Esta declaración debe ser contestada y firmada personalmente por el beneficiario. En caso de existir varios beneficiarios, éstos</div>
+<div id="tf_2" class="t s4_2">podrán contestar mancomunadamente la declaración, pero si lo desean pueden formularla separadamente. En este caso se les</div>
+<div id="tg_2" class="t s4_2">proporcionarán formatos a cada uno de ellos.</div>
+<div id="th_2" class="t s4_2">Cuando la póliza deba pagarse a los representantes legales del o los beneficiarios, esta declaración deberá ser firmada por el</div>
+<div id="ti_2" class="t s4_2">albacea o representante legal, quien deberá acreditar su nombramiento con copia certificada de las constancias respectivas del</div>
+<div id="tj_2" class="t s4_2">juicio sucesorio correspondiente. Tratándose del padre o madre del o los beneficiarios que ejerza la patria potestad sobre el o</div>
+<div id="tk_2" class="t s4_2">ellos conforme al Código Civil para el D.F., cuando tal ejercicio se compruebe a la compañía, se entenderá que dicha persona es</div>
+<div id="tl_2" class="t s4_2">el representante legal para los efectos de esta declaración.</div>
+<div id="tm_2" class="t s4_2">Cuando una póliza deba pagarse a un menor de edad, la declaración deberá ser hecha por su tutor o representante legal, quien</div>
+<div id="tn_2" class="t s4_2">deberá justificar su carácter.</div>
+<div id="to_2" class="t s4_2">Si alguno de los beneficiarios no sabe leer, deberá expresarse esta circunstancia, imprimiendo su huella digital y firmando a su</div>
+<div id="tp_2" class="t s4_2">ruego otra persona. Para dejar constancia de esta situación, la siguiente declaración deberá suscribirse por dos testigos y podrá</div>
+<div id="tq_2" class="t s4_2">llenarse con la siguiente redacción:</div>
+<div id="tr_2" class="t s4_2">“Hacemos constar que en nuestra presencia,</div>
+<div id="ts_2" class="t s4_2">imprimió su huella</div>
+<div id="tt_2" class="t s4_2">digital en virtud de no saber firmar, y después de enterarlo de las contestaciones dadas a las preguntas anteriores, manifestó</div>
+<div id="tu_2" class="t s4_2">expresamente su conformidad con ellas, y a su ruego firmó ___________________________________________</div>
+<div id="tv_2" class="t s4_2">_____________________________________________________________________________________________________.”</div>
+<div id="tw_2" class="t s4_2">En caso de haber fallecido alguno de los beneficiarios, los demás deberán justificar su fallecimiento, exhibiendo original o copia</div>
+<div id="tx_2" class="t s4_2">certificada del Acta de Defunción.</div>
+<div id="ty_2" class="t s4_2">La Compañía se reserva el derecho de exigir informes adicionales si lo considera conveniente.</div>
+<div id="tz_2" class="t s5_2">INSTRUCCIONES</div>
+<div id="t10_2" class="t s3_2">(Aquí el nombre del beneficiario)</div>
+<div id="t11_2" class="t s3_2">(Aquí el nombre de la persona que firma la reclamación)</div>
+<div id="t12_2" class="t s3_2">PERSONA QUE FIRMA EN REPRESENTACIÓN DEL</div>
+<div id="t13_2" class="t s3_2">BENEFICIARIO</div>
+<div id="t14_2" class="t s3_2">HUELLA DEL BENEFICIARIO</div>
+<div id="t15_2" class="t s3_2">TESTIGO</div>
+<div id="t16_2" class="t s3_2">TESTIGO</div>
+<div id="t17_2" class="t s6_2">Asimismo, mediante el(los) depósito(s) que se haga(n) en la(s) cuenta(s) señalada(s) o el(los) pago(s) hecho(s) en la(s) orden(es) de pago mencionada(s),</div>
+<div id="t18_2" class="t s6_2">me doy(nos damos) por pagado(s) de todas y cada una de las prestaciones originadas del contrato de seguro señalado, cuya suma asegurada fue</div>
+<div id="t19_2" class="t s6_2">disminiuida a solicitud del asegurado, otorgando el más amplio finiquito que en derecho proceda, no reservándose acción ni derecho alguno que ejercitar en</div>
+<div id="t1a_2" class="t s6_2">contra de </div>
+<div id="t1b_2" class="t s7_2">Seguros Banamex, S.A. de C.V. </div>
+<div id="t1c_2" class="t s6_2">y/o de las personas físicas y morales relacionadas con la misma.</div>
+<div id="t1d_2" class="t s8_2">Le recordamos que sus datos personales están protegidos por la Ley Federal de Datos Personales en Posesión de Particulares y que el AVISO DE</div>
+<div id="t1e_2" class="t s8_2">PRIVACIDAD se encuentra disponible en la página de Internet de Seguros Banamex. </div>
+<div id="t1f_2" class="t s9_2">www</div>
+<div id="t1g_2" class="t s9_2">.segurosbanamex.com</div>
+<div id="t1h_2" class="t s10_2">He leído y manifiesto mi conformidad tanto con los datos proporcionados, como con el Aviso de Privacidad arriba citados</div>
+
+<!-- End text definitions -->
+
+<!-- Begin page background -->
+<div id="pg2Overlay" style="width:100%; height:100%; position:absolute; z-index:1; background-color:rgba(0,0,0,0); -webkit-user-select: none;"></div>
+<div id="pg2"><object width="935" height="1210" data="2/2.svg" type="image/svg+xml" id="pdf2" style="width:935px; height:1210px; background-color:white; -moz-transform:scale(1); z-index: 0;"></object></div>
+<!-- End page background -->
+
+<!-- Begin page loading JS -->
+<script id="ld2" type="text/javascript">
+
+var isIE = false;
+var f2 = [['t1_2',1943],['t2_2',476],['t3_2',362],['t4_2',338],['t8_2',3325],['t9_2',904],['ta_2',2406],['tb_2',3325],['tc_2',3325],['td_2',243],['te_2',3326],['tf_2',3326],['tg_2',1190],['th_2',3325],['ti_2',3325],['tj_2',3326],['tk_2',3326],['tl_2',1563],['tm_2',3325],['tn_2',747],['to_2',3326],['tp_2',3326],['tq_2',934],['tr_2',1190],['ts_2',500],['tt_2',3280],['tu_2',2965],['tw_2',3326],['tx_2',885],['ty_2',2483],['t10_2',618],['t11_2',1072],['t12_2',1034],['t14_2',573],['t17_2',3480],['t18_2',3480],['t19_2',3480],['t1a_2',213],['t1b_2',758],['t1c_2',1488],['t1d_2',3304],['t1e_2',1874],['t1h_2',1699]];
+function load2(){
+	var timeout = 100;
+	if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)) timeout = 500;
+	setTimeout(function() {adjustWordSpacing(f2);},timeout);
+}
+</script>
+<!--[if lt IE 9]><script type="text/javascript">
+isIE = true;
+
+var divCount = 54;
+for (var i = 1; i < divCount; i++) {
+	var div = document.getElementById("t" + i.toString(36) + "_2");
+	div.style.top = (div.offsetTop * 4) + "px";
+	div.style.left = (div.offsetLeft * 4) + "px";
+	div.style.zoom = "25%";}
+</script><![endif]-->
+<!-- End page loading JS -->
+
+</div>
+</body>
+</html>

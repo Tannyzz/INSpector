@@ -1,0 +1,226 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta charset="utf-8" />
+</head>
+
+<body style="margin: 0;">
+
+<div id="jpedal" style="overflow: hidden; position:relative; width: 935px; height: 1210px;">
+
+<!-- Begin shared CSS values -->
+<style type="text/css" >
+.t {
+	position: absolute;
+	-webkit-transform-origin: top left;
+	-moz-transform-origin: top left;
+	-o-transform-origin: top left;
+	-ms-transform-origin: top left;
+	-webkit-transform: scale(0.25);
+	-moz-transform: scale(0.25);
+	-o-transform: scale(0.25);
+	-ms-transform: scale(0.25);
+	z-index: 2;
+	position:absolute;
+	white-space:nowrap;
+	overflow:visible;
+}
+</style>
+<!-- End shared CSS values -->
+
+<!-- Begin shared JS -->
+<script type="text/javascript">
+
+// Ensure that we're not replacing any onload events
+function addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			if (oldonload) {
+				oldonload();
+			}
+			func();
+		}
+	}
+}
+addLoadEvent(function(){load2();});
+
+function adjustWordSpacing(widths) {
+    var i, allLinesDone = false;
+    var isDone = [];
+    var currentSpacing = [];
+    var elements = [];
+    
+    // Initialise arrays
+    for (i = 0; i < widths.length; i++) {
+        elements[i] = document.getElementById(widths[i][0]);
+        elements[i].style.wordSpacing = '0px';//Required if rerunning
+    }
+    for (i = 0; i < widths.length; i++) {
+        if (isIE) widths[i][1] = widths[i][1] * 4;
+        currentSpacing[i] = Math.floor((widths[i][1] - elements[i].offsetWidth) / elements[i].innerHTML.match(/\s.|&nbsp;./g).length);//min
+        if (isIE) currentSpacing[i] = Math.floor(currentSpacing[i] / 4);
+        isDone[i] = false;
+    }
+    
+    while (!allLinesDone) {
+        // Add each adjustment to the render queue without forcing a render
+        for (i = 0; i < widths.length; i++) {
+            if (!isDone[i]) {
+                elements[i].style.wordSpacing = currentSpacing[i] + 'px';
+            }            
+        }
+        
+        allLinesDone = true;
+        // If elements still need to be wider, add 1 to the word spacing
+        for (i = 0; i < widths.length; i++) {
+            if (!isDone[i] && currentSpacing[i] < 160) {
+                if (elements[i].offsetWidth >= widths[i][1]) {
+                    isDone[i] = true;
+                } else {
+                    currentSpacing[i]++;
+                    allLinesDone = false;
+                }
+            }
+        }
+    }
+    
+    for (i = 0; i < widths.length; i++) {
+        elements[i].style.wordSpacing = (currentSpacing[i] - 1) + 'px';
+    }
+}
+
+</script>
+<!-- End shared JS -->
+
+
+<!-- Begin inline CSS -->
+<style type="text/css" >
+
+#t1_2{left:73px;top:84px;}
+#t2_2{left:73px;top:102px;}
+#t3_2{left:84px;top:163px;}
+#t4_2{left:733px;top:163px;letter-spacing:1px;}
+#t5_2{left:84px;top:191px;letter-spacing:-1px;}
+#t6_2{left:84px;top:218px;letter-spacing:-1px;}
+#t7_2{left:84px;top:246px;letter-spacing:-1px;}
+#t8_2{left:515px;top:181px;}
+#t9_2{left:341px;top:268px;}
+#ta_2{left:120px;top:465px;}
+#tb_2{left:225px;top:478px;}
+#tc_2{left:630px;top:465px;}
+#td_2{left:225px;top:638px;}
+#te_2{left:664px;top:638px;}
+#tf_2{left:113px;top:495px;}
+#tg_2{left:113px;top:510px;letter-spacing:1px;}
+#th_2{left:113px;top:657px;}
+#ti_2{left:113px;top:671px;letter-spacing:1px;}
+#tj_2{left:552px;top:659px;}
+#tk_2{left:552px;top:674px;letter-spacing:1px;}
+#tl_2{left:74px;top:776px;}
+#tm_2{left:94px;top:790px;}
+#tn_2{left:414px;top:790px;}
+#to_2{left:653px;top:790px;}
+#tp_2{left:83px;top:827px;}
+#tq_2{left:83px;top:867px;}
+#tr_2{left:83px;top:908px;}
+
+.s3_2{
+	FONT-SIZE: 48px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+}
+
+.s1_2{
+	FONT-SIZE: 61px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+}
+
+.s2_2{
+	FONT-SIZE: 42px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+}
+
+.s4_2{
+	FONT-SIZE: 36px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+}
+
+.s5_2{
+	FONT-SIZE: 36px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: rgb(35,31,32);
+	FONT-WEIGHT: bold;
+}
+
+</style>
+<!-- End inline CSS -->
+
+<!-- Begin text definitions (Positioned/styled in CSS) -->
+<div id="t1_2" class="t s1_2">Si el albacea no sabe leer y/o escribir o estuviere incapacitado para hacerlo, deberá expresarse esa circunstancia,</div>
+<div id="t2_2" class="t s1_2">imprimiendo su huella digital y deberá firmar a su ruego otra persona en presencia de dos testigos.</div>
+<div id="t3_2" class="t s1_2">“Hacemos constar que en nuestra presencia el (la) C.</div>
+<div id="t4_2" class="t s1_2">imprimió su huella</div>
+<div id="t5_2" class="t s1_2">digital en virtud de no saber leer y/o escribir o estar incapacitado para hacerlo, y después de enterarlo de las contestaciones</div>
+<div id="t6_2" class="t s1_2">dadas a las preguntas anteriores, manifestó expresamente su conformidad, y a su ruego firmó _______________________</div>
+<div id="t7_2" class="t s1_2">_____________________________________________________________________________________________.”</div>
+<div id="t8_2" class="t s2_2">(Aquí el nombre del albacea)</div>
+<div id="t9_2" class="t s2_2">(Aquí persona que firma en representación del albacea)</div>
+<div id="ta_2" class="t s2_2">PERSONA QUE FIRMA EN REPRESENTACIÓN DEL</div>
+<div id="tb_2" class="t s2_2">ALBACEA</div>
+<div id="tc_2" class="t s2_2">HUELLA DEL ALBACEA</div>
+<div id="td_2" class="t s2_2">TESTIGO</div>
+<div id="te_2" class="t s2_2">TESTIGO</div>
+<div id="tf_2" class="t s3_2">Domicilio y</div>
+<div id="tg_2" class="t s3_2">teléfono:</div>
+<div id="th_2" class="t s3_2">Domicilio y</div>
+<div id="ti_2" class="t s3_2">teléfono:</div>
+<div id="tj_2" class="t s3_2">Domicilio y</div>
+<div id="tk_2" class="t s3_2">teléfono:</div>
+<div id="tl_2" class="t s4_2">¿ EN QUE OTRAS COMPAÑIAS Y POR QUE SUMAS ESTABA ASEGURADA LA VIDA  DEL  ASEGURADO(A) ?</div>
+<div id="tm_2" class="t s5_2">NOMBRE DE LA COMPAÑÍA </div>
+<div id="tn_2" class="t s5_2">NUMERO DE POLIZA </div>
+<div id="to_2" class="t s5_2">SUMA ASEGURADA</div>
+<div id="tp_2" class="t s4_2">1.-</div>
+<div id="tq_2" class="t s4_2">2.-</div>
+<div id="tr_2" class="t s4_2">3.-</div>
+
+<!-- End text definitions -->
+
+<!-- Begin page background -->
+<div id="pg2Overlay" style="width:100%; height:100%; position:absolute; z-index:1; background-color:rgba(0,0,0,0); -webkit-user-select: none;"></div>
+<div id="pg2"><object width="935" height="1210" data="2/2.svg" type="image/svg+xml" id="pdf2" style="width:935px; height:1210px; background-color:white; -moz-transform:scale(1); z-index: 0;"></object></div>
+<!-- End page background -->
+
+<!-- Begin page loading JS -->
+<script id="ld2" type="text/javascript">
+
+var isIE = false;
+var f2 = [['t1_2',3167],['t2_2',2612],['t3_2',1416],['t4_2',527],['t5_2',3123],['t6_2',3123],['t8_2',545],['t9_2',1058],['ta_2',1031],['tc_2',467],['tf_2',233],['th_2',233],['tj_2',233],['tl_2',1858],['tm_2',491],['tn_2',367],['to_2',353]];
+function load2(){
+	var timeout = 100;
+	if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)) timeout = 500;
+	setTimeout(function() {adjustWordSpacing(f2);},timeout);
+}
+</script>
+<!--[if lt IE 9]><script type="text/javascript">
+isIE = true;
+
+var divCount = 28;
+for (var i = 1; i < divCount; i++) {
+	var div = document.getElementById("t" + i.toString(36) + "_2");
+	div.style.top = (div.offsetTop * 4) + "px";
+	div.style.left = (div.offsetLeft * 4) + "px";
+	div.style.zoom = "25%";}
+</script><![endif]-->
+<!-- End page loading JS -->
+
+</div>
+</body>
+</html>
