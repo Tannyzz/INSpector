@@ -63,7 +63,7 @@ session_start();
                      while($row = mysqli_fetch_array($result)){ ?> 
 
                      	<ul class="collection">
-       						<li class="collection-item dismissable"><a target="_blank" href="../siniestros/ifsinind2.php?siniestro=<?php echo $row['case']?>&amp;asegurado=<?php echo $row['asegurado']?>&amp;vzlcn=hide&amp;ride=readonly"><?php echo $row['case'] ?><i class="material-icons circle deep-orange lighten-1 right white-text"><i class="material-icons">directions_run</i></i></a></li>
+       						<li class="collection-item dismissable"><a target="_blank" href="../siniestros/ifsinind2.php?siniestro=<?php echo $row['case']?>&amp;asegurado=<?php echo $row['asegurado']?>&amp;tipo=<?php echo $row['typeSin']?>&amp;vzlcn=hide&amp;ride=ro"><?php echo $row['case'] ?><i class="material-icons circle deep-orange lighten-1 right white-text"><i class="material-icons">directions_run</i></i></a></li>
       					</ul>       					
                     <?php }
 

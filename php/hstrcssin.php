@@ -73,7 +73,7 @@ session_start();
 			$siniestro = $_POST['siniestro'];
 
 			if (mysqli_connect_errno()) {
-                echo "<center><p style=\"color:#b40000\"><strong>Falló la conexion al Sistema LineINS.</strong></p></center>";                              
+                echo "<center><p style=\"color:#b40000\"><strong>Falló la conexion al Sistema INSpector.</strong></p></center>";                              
             }else{
 
       				$sql = "SELECT * FROM `follow`.`casosF` WHERE `case` = '$siniestro' and `statusSin` = 0";

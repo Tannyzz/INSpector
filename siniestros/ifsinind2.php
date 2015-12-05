@@ -4,7 +4,6 @@
 	include("../php/hour_control.php");
 	$conexion = mysqli_connect($ruta,$user,$pass,$db);
 	$siniestro = $_GET['siniestro'];
-	$tipo = $_GET['tipo'];
 	$asegurado = $_GET['asegurado'];
 	$us = $_SESSION['user'];
 
@@ -54,6 +53,8 @@
         	$read = "";
         	$hide = $_GET['vzlcn'];
         	$read = $_GET['ride'];
+        	if($read == "ro")
+        		$read = "readonly";
 
         		if (mysqli_connect_errno()) {
  	
@@ -61,19 +62,19 @@
         }else{                                
             $result = mysqli_query($conexion,"SELECT * FROM `siniestro` WHERE `siniestro` = '$siniestro' and `asegurado` = '$asegurado'");
             while($row = mysqli_fetch_array($result)){
-            	$d0 = $row['idSiniestro'];
-            	$d1 = $row['poliza'];
-            	$d2 = $row['fechaSiniestro'];
-            	$d3 = $row['tipoReclamo'];
-            	$d4 = $row['sumaAsegurada'];
-            	$d5 = $row['producto'];
-            	$d6 = $row['lugSiniestro'];
-            	$d7 = $row['causasFalle'];
-            	$d8 = $row['causasInve'];
-            	$d9 = $row['domicilio'];
-            	$d10 = $row['ocupacion'];
-            	$d11 = $row['porcentaje'];
-            	$d12 = $row['exclusion'];
+            	$d0 = strtoupper($row['idSiniestro']);
+            	$d1 = strtoupper($row['poliza']);
+            	$d2 = strtoupper($row['fechaSiniestro']);
+            	$d3 = strtoupper($row['tipoReclamo']);
+            	$d4 = strtoupper($row['sumaAsegurada']);
+            	$d5 = strtoupper($row['producto']);
+            	$d6 = strtoupper($row['lugSiniestro']);
+            	$d7 = strtoupper($row['causasFalle']);
+            	$d8 = strtoupper($row['causasInve']);
+            	$d9 = strtoupper($row['domicilio']);
+            	$d10 = strtoupper($row['ocupacion']);
+            	$d11 = strtoupper($row['porcentaje']);
+            	$d12 = strtoupper($row['exclusion']);
             	}
             }
         }
@@ -125,10 +126,10 @@
 			            <td class="teal white-text" >Fecha de Siniestro:</td>
 			            <td><input value="<?php echo $d2; ?>" <?php echo $read; ?> required type="date" name="fechasiniestro"></td>
 			          </tr>
-			           <tr>
+			           <!--<tr>
 			            <td class="teal white-text" >Tipo de reclamación:</td>
 			            <td><input value="<?php echo $tipo; ?>" required readonly type="text" name="tiporeclamacion" placeholder="Escribe aquí"></td>
-			          </tr>
+			          </tr>-->
 			           <tr>
 			            <td class="teal white-text" >Suma Asegurada:</td>
 			            <td><input value="<?php echo "$".$d4; ?>" <?php echo $read; ?> required type="text" name="monto"></td>
@@ -136,8 +137,7 @@
 			          <tr>
 			            <td class="teal white-text" >Producto:</td>
 			            <td>
-			            <select <?php if($read == "readonly"){ $read = "disabled";
-			          		echo $read; } ?> name="lugarsiniestro" class="browser-default">
+			            <select required name="producto" class="<?php echo $hide; ?> browser-default">
 						      <option value="" disabled selected>Selecciona tu producto</option>
 						      <option value="" disabled>------Productos BANAMEX------</option>
 						      <option value="EMERGENCIA MEDICA EN EFECTIVO">EMERGENCIA MEDICA EN EFECTIVO</option>
@@ -197,17 +197,18 @@
 			          <tr>
 			            <td class="teal white-text" >Ocupación de Asegurado:</td>
 			            <td><input value="<?php echo $d10; ?>" <?php echo $read; ?> required type="text" name="ocupacionasegurado" placeholder="Escribe aquí"><br>
-			            	<input name="exclusion" value="EXCLUSIÓN" type="radio" id="test1"/><label for="test1">Exclusión</label>
-			            	<input name="exclusion" value="RIESGO" type="radio" id="test2"/><label for="test2">Riesgo</label>
-			            	<input name="exclusion" value="SIN RIESGO" type="radio" id="test3"/><label for="test3">Sin Riesgo</label><br>
+			            	<div class="<?php echo $hide; ?>">
+				            	<input  name="exclusion" value="EXCLUSIÓN" type="radio" id="test1"/><label for="test1">Exclusión</label>
+				            	<input  name="exclusion" value="RIESGO" type="radio" id="test2"/><label for="test2">Riesgo</label>
+				            	<input  name="exclusion" value="SIN RIESGO" type="radio" id="test3"/><label for="test3">Sin Riesgo</label><br>
+			            	</div>
 			            	<input value="<?php echo utf8_encode($d12); ?>" <?php echo $read; ?> type="text" readonly>
 			            </td>
 			          </tr>
 			          <tr>
 			          	<td class="teal white-text">Porcetanje de avance en investigación: </td>
 			          	<td>
-			          	<select <?php if($read == "readonly"){ $read = "disabled";
-			          		echo $read; } ?> name="porcentaje" required class="z-depth-2 browser-default">
+			          	<select name="porcentaje" required class="<?php echo $hide; ?> z-depth-2 browser-default">
 					      <option value="" disabled selected>SELECCIONA UN PORCENTAJE </option>	
 					      <option value="1% Inicio de Investigación">1 % Inicio de investigación</option>
 					      <option value="10 % de Avance">10 % de Avance</option>
@@ -261,7 +262,7 @@
 			$producto = strtoupper($_POST['producto']);
 			$lugarsiniestro = strtoupper($_POST['lugarsiniestro']);
 			$causasfallecimiento = strtoupper($_POST['causasfallecimiento']);
-			$casuasinvestigacion = strtoupper($_POST['casuasinvestigacion']);				
+			$causasinvestigacion = strtoupper($_POST['causasinvestigacion']);				
 			$domicilio = strtoupper($_POST['domicilio']);
 			$ocupacionasegurado = strtoupper($_POST['ocupacionasegurado']);
 			$porcentaje = $_POST['porcentaje'];
@@ -287,7 +288,7 @@
                         		`domicilio`, 
                         		`ocupacion`,
                         		`porcentaje`,
-                        		`exclusion`) VALUES (NULL,'$asegurado','$poliza','$siniestro','$fechaSiniestro','$tiporeclamacion','$sumaAsegurada','$producto','$lugarsiniestro','$causasfallecimiento','$casuasinvestigacion','$domicilio','$ocupacionasegurado','$porcentaje','$exclusion')";
+                        		`exclusion`) VALUES (NULL,'$asegurado','$poliza','$siniestro','$fechaSiniestro','$tiporeclamacion','$sumaAsegurada','$producto','$lugarsiniestro','$causasfallecimiento','$causasinvestigacion','$domicilio','$ocupacionasegurado','$porcentaje','$exclusion')";
                         	mysqli_query($conexion,$datosSiniestro);
                         	mysqli_close($conexion);
                         	?>
@@ -300,18 +301,18 @@
 	}
 	if (isset($_POST['actualizar'])) {
 
-			$poliza = $_POST['poliza'];
-			$fechaSiniestro = $_POST['fechasiniestro'];
-			$tiporeclamacion = $_POST['tiporeclamacion'];
-			$sumaAsegurada = $_POST['monto'];
-			$producto = $_POST['producto'];
-			$lugarsiniestro = $_POST['lugarsiniestro'];
-			$causasfallecimiento = $_POST['causasfallecimiento'];
-			$casuasinvestigacion = $_POST['casuasinvestigacion'];				
-			$domicilio = $_POST['domicilio'];
-			$ocupacionasegurado = $_POST['ocupacionasegurado'];
-			$porcentaje = $_POST['porcentaje'];
-			$exclusion = $_POST['exclusion'];
+			$poliza = strtoupper($_POST['poliza']);
+			$fechaSiniestro = strtoupper($_POST['fechasiniestro']);
+			$tiporeclamacion = strtoupper($_POST['tiporeclamacion']);
+			$sumaAsegurada = strtoupper($_POST['monto']);
+			$producto = strtoupper($_POST['producto']);
+			$lugarsiniestro = strtoupper($_POST['lugarsiniestro']);
+			$causasfallecimiento = strtoupper($_POST['causasfallecimiento']);
+			$causasinvestigacion = strtoupper($_POST['causasinvestigacion']);				
+			$domicilio = strtoupper($_POST['domicilio']);
+			$ocupacionasegurado = strtoupper($_POST['ocupacionasegurado']);
+			$porcentaje = strtoupper($_POST['porcentaje']);
+			$exclusion = strtoupper($_POST['exclusion']);
 
 		 if (mysqli_connect_errno()) {
                               echo "<center><p style=\"color:#b40000\"><strong>Falló la conexion a la Base de Datos.</strong></p></center>";
@@ -327,7 +328,7 @@
 												`producto`='$producto',
 												`lugSiniestro`='$lugarsiniestro',
 												`causasFalle`='$causasfallecimiento',
-												`causasInve`='$casuasinvestigacion',
+												`causasInve`='$causasinvestigacion',
 												`domicilio`='$domicilio',
 												`ocupacion`='$ocupacionasegurado', 
 												`porcentaje` = '$porcentaje',
@@ -341,11 +342,6 @@
 		                	</script>
                         	 	<?php     	 		
                         }
-	}
-			
-	 ?>
-
-
-
+	}?>
 </body>
 </html

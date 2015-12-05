@@ -76,7 +76,7 @@ session_start();
       				$sql = "SELECT * FROM `follow`.`casosF` WHERE `case` = '$buscar' and `status` = 0";
                     $result = mysqli_query($conexion,$sql); 
                     if(mysqli_num_rows(mysqli_query($conexion,$sql)) == 0){ ?>
-                    	<h4 class="red-text">No se ha encontrado el Follow solicitado. Verifica que el caso que solicitas ya esté dado de baja e intentalo nuevamente.</h4>
+                    	<h4 class="red-text">No se ha encontrado el SSIAS solicitado. Verifica que el SSIAS que solicitas ya esté dado de baja e intentalo nuevamente.</h4>
                     <?php }else{
 
                      while($row = mysqli_fetch_array($result)){ ?>

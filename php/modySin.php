@@ -1,7 +1,7 @@
 <?php 
 	session_start(); 
 	include("conex.php"); 
-	$conexion2 = mysqli_connect($ruta,$user,$pass,"follow"); 
+	$conexion = mysqli_connect($ruta,$user,$pass,"follow"); 
 
 	if($_SESSION['user'] == ''){ ?>
 		<script type="text/javascript">
@@ -68,11 +68,29 @@
 
 
   	if (isset($_POST['modificar'])){
-      		$siniestro = $_POST['siniestro']; 
-      		$asegurado = ucwords(str_replace('ñ','Ã±',$_POST['asegurado'])); ; 
-      		echo "<div class=\"center\"><a href=\"../siniestros/ifsinind2.php?siniestro=$siniestro&&asegurado=$asegurado\" target=\"_blank\" class=\"white-text waves-light waves-effect orange darken-3 btn modal-trigger\">Modificar</a></div>";
 
-      		
+      		$siniestro = $_POST['siniestro']; 
+      		$asegurado = ucwords(str_replace('ñ','Ã±',$_POST['asegurado']));
+
+      		if (mysqli_connect_errno()) {
+                echo "<center><p style=\"color:#b40000\"><strong>Falló la conexion al Sistema INSpector.</strong></p></center>";                              
+            }else{
+
+      				$sql = "SELECT * FROM `follow`.`casosF` WHERE `case` = '$siniestro' AND `statusSin` = 1 AND  `asegurado` = '$asegurado'";
+                    $result = mysqli_query($conexion,$sql); 
+                    if(mysqli_num_rows(mysqli_query($conexion,$sql)) == 0){ ?>
+                    	<h4 class="red-text">No se ha encontrado el Siniestro. Verifica que el caso que solicitas siga activado e intentalo nuevamente.</h4>
+                    <?php }else{
+
+                     while($row = mysqli_fetch_array($result)){ ?>
+                     <ul class="collection">
+       						<li class="collection-item dismissable"><a target="_blank" href="../siniestros/ifsinind2.php?siniestro=<?php echo $row['case']; ?>&amp;asegurado=<?php echo $row['asegurado']; ?>"><?php echo $row['case'] ?><i class="material-icons circle grey darken-3 right white-text">accessibility</i></a></li>
+      					</ul> 
+      					<div class="divider"></div>
+
+                     <?php }
+                 }
+            }
       	}
 			         ?>
 

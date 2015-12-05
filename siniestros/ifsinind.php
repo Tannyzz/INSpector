@@ -3,7 +3,6 @@
 	include("../php/conex.php");
 	include("../php/hour_control.php");
 	$conexion = mysqli_connect($ruta,$user,$pass,$db);
-	$conexion2 = mysqli_connect($ruta,$user,$pass,"follow");
 
 	 if($_SESSION['user'] == ""){ ?>
 	 	<script type="text/javascript">
@@ -89,11 +88,41 @@
 				
 			</tr>
 
+				          
+
 					<tr>
 			            <td class="teal white-text" >Quien da de alta el SSIAS</td>
 			            <td><input type="text" readonly name="userAlta" value="<?php echo $_SESSION['user']; ?>"></td>
 			          </tr>
+			          <td class="teal white-text">Número de casos por investigador:</td>
+				          <td>
+				          	<table class="striped">
+				          		<tbody>
+				          			<tr><th style="text-align: left">Nombre</th><th style="text-align: center"># casos asignados</th></tr>
+				          						 
+								<?php $conexion2 = mysqli_connect($ruta,$user,$pass,"follow");
+								if (mysqli_connect_errno()) { 	
+                                  		echo "<span style='color:#b71c1c;'>Falló la conexión con la Base de Datos MySQL: " . mysqli_connect_error() . "</span>";
+                                }else{                                
+                                	$counter = mysqli_query($conexion2,"SELECT inves, COUNT(*) AS contador FROM `casosF`WHERE status = 1 GROUP BY inves ORDER BY contador");
+                                	  while($row = mysqli_fetch_array($counter)){ 
+                                          		?>
+											<tr><td style="text-align: left"><?php echo $row['inves'] ?></td>
+											<?php if($row['contador'] > 10){
+												echo "<td style='text-align: center; color: red'>".$row['contador']."</td>"; 
+											}elseif ($row['contador'] <= 10 && $row['contador'] > 5) {
+												echo "<td style='text-align: center; color: blue;'>".$row['contador']."</td>"; 
+											}elseif ($row['contador'] <= 5 && $row['contador'] > 0) {
+												echo "<td style='text-align: center; color: green;'>".$row['contador']."</td>"; 
+											}
+											?></tr>
+                                <?php } } ?>   		          			
+				          		</tbody>
+
+				          	</table>
+				          </td>
 			          <tr>
+
 			            <td class="teal white-text" >Investigador Asignado:</td>
 			            <td><select name="inves"  class="z-depth-2 browser-default">
 					      <option value="" disabled selected>SELECCIONA AL INVESTIGADOR </option>
@@ -101,12 +130,19 @@
 								if (mysqli_connect_errno()) { 	
                                   		echo "<span style='color:#b71c1c;'>Falló la conexión con la Base de Datos MySQL: " . mysqli_connect_error() . "</span>";
                                 }else{                                
-                                	$result = mysqli_query($conexion,"SELECT `user` FROM `user_ins_2018` WHERE `type`=3 OR `type` = 0");
-                                          while($row = mysqli_fetch_array($result)){ ?>
-										      <option value="<?php echo $row['user'];?>"><?php echo $row['user'];?></option>	
-					      <?php  } } ?>				      
+                                	$result = mysqli_query($conexion,"SELECT `user` FROM `user_ins_2018` WHERE `type`=3 OR `type` = 0  ORDER BY user");
+                                	
+
+                                          while($row = mysqli_fetch_array($result)){ 
+                                          		?>
+
+										      <option value="<?php echo $row['user'];?>"><?php echo $row['user']; ?></option>	
+					      <?php  } //}
+					      } ?>				      
 					    </select>
 					    </td>
+			          </tr>
+			          <tr>
 			          </tr>
 			         
 			        </tbody>
@@ -120,7 +156,7 @@
 				            <div class="container">
 				            © 2015 INSpector, Asesores Profesionales.
 								
-				            <input class="right btn waves-effect waves-light" value="Continuar" type="submit" name="continuar">
+				            <input class="right btn waves-effect waves-light" value="continuar" type="submit" name="continuar">
 								  
 								   </form>
 				            </div>
@@ -177,7 +213,7 @@
 							mysqli_query($conexion2,$status);                        	
                         	mysqli_close($conexion2); 
 
-                        	header('Location: ../siniestros/ifsinind2.php?siniestro=$siniestro&&asegurado=$asegurado&&tipo=$tipo');
+                        	header("Location: ../siniestros/ifsinind2.php?siniestro=$siniestro&asegurado=$asegurado");
       		}
 		}
 	 ?>
