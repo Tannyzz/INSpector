@@ -84,7 +84,7 @@
 
                      while($row = mysqli_fetch_array($result)){ ?>
                      <ul class="collection">
-       						<li class="collection-item dismissable"><a target="_blank" href="../siniestros/ifsinind2.php?siniestro=<?php echo $row['case']; ?>&amp;asegurado=<?php echo $row['asegurado']; ?>"><?php echo $row['case'] ?><i class="material-icons circle grey darken-3 right white-text">accessibility</i></a></li>
+       						<li class="collection-item dismissable"><a target="_blank" href="../siniestros/ifsinind2.php?siniestro=<?php echo $row['case']; ?>&amp;asegurado=<?php echo $row['asegurado']; ?>&amp;producto=<?php echo $row['typeSin'];?> "><?php echo $row['case'] ?><i class="material-icons circle grey darken-3 right white-text">accessibility</i></a></li>
       					</ul> 
       					<div class="divider"></div>
 

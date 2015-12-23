@@ -41,12 +41,12 @@
 			        	<form method="post">
 			          <tr>
 			            <td class="teal white-text" >Siniestro No.</td>
-			            <td><input  type="text" name="siniestro" placeholder="Ingresa número de Siniestro"></td>
+			            <td><input title="Ingresar un numero de siniestro valido" type="text" required name="siniestro" placeholder="Ingresa número de Siniestro"></td>
 			          </tr>
 			          <tr>
 			            <td class="teal white-text" >Tipo de Siniestro:</td>
 			            <td>
-						    <select name="tipo" class="browser-default">
+						    <select title="Debes seleccionar un producto" required name="tipo" class="browser-default">
 						      <option value="" disabled selected>Selecciona tu producto</option>
 						      <option value="" disabled>------Productos BANAMEX------</option>
 						      <option value="EMERGENCIA MEDICA EN EFECTIVO">EMERGENCIA MEDICA EN EFECTIVO</option>
@@ -78,7 +78,7 @@
 			          </tr>
 			          <tr>
 			            <td class="teal white-text" >Asegurado:</td>
-			            <td><input type="text" name="asegurado" placeholder="Ingresa Nombre de Asegurado"></td>
+			            <td><input title="Ingresa un Nombre de asegurado" required type="text" name="asegurado" placeholder="Ingresa Nombre de Asegurado"></td>
 			          </tr>
 			</div><br>
 			<tr>
@@ -124,7 +124,7 @@
 			          <tr>
 
 			            <td class="teal white-text" >Investigador Asignado:</td>
-			            <td><select name="inves"  class="z-depth-2 browser-default">
+			            <td><select title="Debes seleccionar a un investigador" required name="inves"  class="z-depth-2 browser-default">
 					      <option value="" disabled selected>SELECCIONA AL INVESTIGADOR </option>
 							<?php 
 								if (mysqli_connect_errno()) { 	
@@ -156,7 +156,7 @@
 				            <div class="container">
 				            © 2015 INSpector, Asesores Profesionales.
 								
-				            <input class="right btn waves-effect waves-light" value="continuar" type="submit" name="continuar">
+				            <input class="right btn waves-effect waves-light" value="Siguiente" type="submit" name="continuar">
 								  
 								   </form>
 				            </div>
@@ -208,15 +208,15 @@
                         		`lng`) VALUES (NULL,'$siniestro','$horaDeControl','SSIAS iniciado','$investigador',1,'img_follow/9019irb_INSpector.jpeg','img_follow/9019irb2_INSpector.jpeg','img_follow/9019irb3_INSpector.jpeg',' ',' ');";
 							mysqli_query($conexion2,$inicializacion);
 							
-							$status = "INSERT INTO `follow`.`casosF` (`id`,`case`,`typeSin`,`asegurado`,`status`,`statusSin`,`inves`,`highuser`) VALUES (NULL,'$siniestro','$tipo','$asegurado',1,1,'$investigador','$userAlta');";
+							$status = "INSERT INTO `casosF` (`id`,`case`,`typeSin`,`asegurado`,`status`,`statusSin`,`inves`,`highuser`) VALUES (NULL,'$siniestro','$tipo','$asegurado',1,1,'$investigador','$userAlta');";
 
-							mysqli_query($conexion2,$status);                        	
+							mysqli_query($conexion2,$status); 
                         	mysqli_close($conexion2); 
-
-                        	header("Location: ../siniestros/ifsinind2.php?siniestro=$siniestro&asegurado=$asegurado");
+                        	//header('Location: ifsinind2.php?siniestro=$siniestro&asegurado=$asegurado');
+                        	echo "<script language=\"javascript\">window.location=\"ifsinind2.php?siniestro=$siniestro&asegurado=$asegurado&producto=$tipo\"</script>";
       		}
 		}
 	 ?>
 
 </body>
-</html
+</html>
