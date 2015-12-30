@@ -53,14 +53,22 @@
 	     	 	<li class="collection-header"><h5 class="login-logo"><b>Coordinador</b></h5></li>
 		        </ul>
 		        <div class="collection-header center"><h5><b>Follows Activos</b></h5></div>
-	      	<div><iframe src="php/cse-fllw.php" width="100%" height="250px"></iframe></div>
+	      			<div><iframe src="php/cse-fllw.php" width="100%" height="250px"></iframe></div>
 		      </div>
 	      	</div>
 
 	      </div>
+	
 
-	      <div class="col s12 m8 l9 teal lighten-5"> 			       
-			       <h4 class="flow-text"><b>Panel de control</b></h4>
+			
+	      <div class="col s12 m8 l9 teal lighten-5"> 
+	      	<ul class="tabs">
+			<li class="tab col s3"><a href="#test1">Panel de Control</a></li>
+			<li class="tab col s3"><a href="#test2">Bitacora</a></li>			
+			<li class="tab col s3"><a href="#test3">Notas</a></li>
+			<li class="tab col s3"><a href="#test4">Formatos</a></li>
+		</ul>
+				<div id="test1">
 	      		<div class="row">
 			        <!--<div class="col s12 m4 l4">
 			          <div class="card  blue-grey">
@@ -154,10 +162,18 @@
 			          </div>
 			        </div>
 			    </div>
+			  </div>
+			    <div id="test2">
+					<div><iframe src="php/bitacora.php" width="100%" height="450px"></iframe></div>
+			    </div>
+			    <div id="test3">Notas</div>
+			    <div id="test4">Formatos</div>
 
+			    
 	      </div>
-
     </div>
+
+    
     <div id="bajaSiniestro" class="modal modal-fixed-footer">
     <div class="modal-content">
       <iframe src="php/dwnSin.php" width="100%" height="500px"></iframe>
