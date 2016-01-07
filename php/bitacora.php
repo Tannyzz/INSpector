@@ -8,7 +8,7 @@
 	if($_SESSION['user'] == ""){ ?>
 	 	<script type="text/javascript">
                         alert("ERROR: Ingresa primero al sistema para poder solicitar la pagina que deseas.");
-                        location.href = "login.php";
+                        location.href = "../login.php";
                 </script>
 
                 <?php } ?>	
@@ -29,10 +29,20 @@
 		</style>
 </head>
 <body style="background-color: #ffffff">
-	<div>
-		<h3 class="center blue-grey-text">INSpector Bitácora</h3>
-	</div>
-	<div class=" container divider blue-grey"></div><br>
+	<div class="navbar-fixed">
+			    <nav class="blue-grey" >
+			    	<div class="container">
+				      <div class="nav-wrapper">
+				        <a href="#!" class="brand-logo">INSpector Bitácora</a>
+				        <!--<ul class="right hide-on-med-and-down">
+				        <form method="post" name="notas">
+					          <li><a><i class="material-icons">view_agenda</i></a></li>
+				         </form>
+				        </ul>-->
+				      </div>
+			      </div>
+			    </nav>
+		    </div>	<br>
 
 	<div class="row">
 		<div class="col s12 m6 l6">
@@ -50,7 +60,7 @@
 		<div class="col s12 m6 l6">
 				<h6><b>Selecciona un número de Siniestro para ver su bitácora:</b></h6>
 				<form method="post">
-					<select class="browser-default" name="consultaBitacora">
+					<select required title="para poder vizualizar su bitácora" class="browser-default" name="consultaBitacora">
 					    <option value="" disabled selected>Selecciona el Siniestro</option>
 
 							    <?php 
@@ -77,9 +87,9 @@
 						<form method="post">	
 						<div class="row container">
 						<div class="container">
-							<div class="col s12 teal" style="border-radius: 10px">
+							<div class="col s12 teal z-depth-3" style="border-radius: 10px">
 							<b><label class="black-text">Dar de alta la bitácora del Siniestro:</label></b>
-							  <select class="browser-default" name="altaBitacora">
+							  <select required class="browser-default" name="altaBitacora">
 							    <option value="" disabled selected>Selecciona el Siniestro</option>
 
 							    <?php 
@@ -101,7 +111,7 @@
 								<button class="btn waves-effect waves-light" type="submit" name="crear1">crear
 				   					 <i class="material-icons">send</i>
 				  				</button>
-				  				<button class="red btn waves-effect waves-light" type="submit" name="cancelar">Cancelar
+				  				<button class="red btn waves-effect waves-light" name="cancelar" onclick="location.href='bitacora.php'">Cancelar
 				   					 <i class="material-icons">delete</i>
 				  				</button>
 			  				</div>
@@ -116,9 +126,9 @@
 				<div class="row container">
 						<div class="container">
 						<form method="post">
-							<div class="col s12 amber" style="border-radius: 10px">
+							<div class="col s12 amber z-depth-2" style="border-radius: 10px">
 							<b><label class="black-text">Agregar a la bitácora:</label></b>
-							  <select class="browser-default" name="agregarTarea">
+							  <select required class="browser-default" name="agregarTarea">
 							    <option value="" disabled selected>Selecciona el Siniestro</option>
 
 							    <?php 
@@ -132,13 +142,12 @@
                                           		<option value="<?php echo $row['case']; ?>"><?php echo $row['case']; ?></option>
                                           		<?php } } ?>
 							  </select>
-								<input class="mi-input" type="text" name="titulo" placeholder="TITULO" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+								<input required class="mi-input" type="text" name="titulo" placeholder="TITULO" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
 								<div class="input-field col s12">
-						          <textarea id="textarea1" name="descripcion" class="mi-input materialize-textarea" placeholder="Descripción"></textarea>
+						          <textarea required id="textarea1" name="descripcion" class="mi-input materialize-textarea" placeholder="Descripción"></textarea>
 						        </div>
-							</div>
 														
-			  				<button class="red btn waves-effect waves-light right" type="submit" name="cancelar">Cancelar
+			  				<button class="red btn waves-effect waves-light right" onclick="location.href='bitacora.php'" name="cancelar">Cancelar
 			   					 <i class="material-icons">delete</i>
 			  				</button>
 			  				<button class="amber darken-3 btn waves-effect waves-light right" type="submit" name="agregar1">Agregar

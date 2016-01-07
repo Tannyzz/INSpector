@@ -65,7 +65,7 @@
 	      	<ul class="tabs">
 			<li class="tab col s3"><a href="#test1">Panel de Control</a></li>
 			<li class="tab col s3"><a href="#test2">Bitacora</a></li>			
-			<li class="tab col s3"><a href="#test3">Notas</a></li>
+			<li class="tab col s3"><a href="#test3" class="active">Notas</a></li>
 			<li class="tab col s3"><a href="#test4">Formatos</a></li>
 		</ul>
 				<div id="test1">
@@ -166,7 +166,7 @@
 			    <div id="test2">
 					<div><iframe src="php/bitacora.php" width="100%" height="450px"></iframe></div>
 			    </div>
-			    <div id="test3">Notas</div>
+			    <div id="test3"><iframe src="php/notas.php" width="100%" height="550px"></iframe></div>
 			    <div id="test4">Formatos</div>
 
 			    

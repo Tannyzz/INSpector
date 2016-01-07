@@ -1,7 +1,14 @@
 <?php
+	session_start();
 	include("conex.php");
 	$conexion = mysqli_connect($ruta,$user,$pass,$db);
-?>
+
+	if($_SESSION['user'] == ''){ ?>
+		<script type="text/javascript">
+                        alert("ERROR: Ingresa primero al sistema para poder solicitar la pagina que deseas..");
+                        location.href = "../login.php";
+                </script>
+<?php }?>
 <!DOCTYPE html>
 <html>
 <head>
